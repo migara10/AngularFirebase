@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
 export function passwordsMatchValidator(): ValidatorFn {
@@ -30,7 +31,7 @@ export class SignupComponent implements OnInit {
   },
     { validators: passwordsMatchValidator() })
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -47,7 +48,7 @@ export class SignupComponent implements OnInit {
     const email = this.signupForm.value.email || '';
     const password = this.signupForm.value.password || '';
     this.authService.signUp(email, password).subscribe(() => {
-
+      this.router.navigate(['/home'])
     })
   }
 
