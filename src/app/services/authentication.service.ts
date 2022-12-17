@@ -6,9 +6,11 @@ import { from, switchMap } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  currentUser$ = authState(this.auth)
+  currentUser$ = authState(this.auth);
 
   constructor(private auth: Auth) { }
+
+ 
 
   login(userName: string, password: string) {
     return from(signInWithEmailAndPassword(this.auth, userName, password));
