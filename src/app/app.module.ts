@@ -20,6 +20,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     LandingComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
